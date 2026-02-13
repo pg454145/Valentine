@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine? 💙</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 50px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  text-align: center;
+  width: 350px;
+}
+h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+p {
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+button {
+  padding: 10px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.yes-btn {
+  background: #00c6ff;
+  color: white;
+}
+
+.yes-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00c6ff;
+}
+.no-btn {
+  background: #555;
+  color: white;
+  position: relative;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container" id="card">
+  <h1>Mr. Special 💙</h1>
+  <p>
+    I don’t need roses or chocolates 🌹🍫 <br>
+    Bas tum saath ho, that’s enough 💙 <br><br>
+    Ready to make it official? 😉
+  </p>
+
+  <h2>Will you be my Valentine? 💕</h2>
+
+  <button class="yes-btn" onclick="sayYes()">Yes 💙</button>
+  <button class="no-btn" onmouseover="moveNo()">No 😏</button>
+</div>
+
+<script>
+function sayYes() {
+  document.getElementById("card").innerHTML =
+    "<h1>Yayyyy! 💙</h1><p>You just made me the happiest person alive 😍<br>Officially mine now 😉💕</p>";
+}
+
+function moveNo() {
+  const container = document.querySelector(".container");
+  const btn = document.querySelector(".no-btn");
+
+  const containerRect = container.getBoundingClientRect();
+
+  const maxX = container.clientWidth - btn.offsetWidth - 20;
+  const maxY = container.clientHeight - btn.offsetHeight - 20;
+
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+
+  btn.style.position = "absolute";
+  btn.style.left = randomX + "px";
+  btn.style.top = randomY + "px";
+}
+</script>
+</body>
+</html>
